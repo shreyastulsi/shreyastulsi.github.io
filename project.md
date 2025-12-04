@@ -212,6 +212,8 @@ MAPE = 47.09%<br>
 
 
 <br>
+<br>
+
 From these results, we can see the non-linear models are all outperforming the linear regression, across all metrics that we are tracking. The most promising results are from the random forest approach, giving us a strong R^2 metric of 0.8645, as well as the lowest RMSE. It is important to note however, that Gradient Boosting did have a lower MAPE and a lower MAE, thus making gradient boosting and random forest the two winners. <br>
 
 Exploring the random forest further however I was curious to better understand its rationale, so I examined its ranked feature importances.<br>
