@@ -46,59 +46,122 @@ Used StandardScaler for input features, so Linear Regression and ML would work b
 
 
 I then also performed further exploratory data analysis to visualize the relationships within my dataset in a clearer fashion.
-
-A correlation heatmap for all numeric features.
 ![](assets/IMG/correlation_heatmap.png)
-A histogram of charges and boxplots of charges by smoker and by region.
 ![](assets/IMG/eda_visualizations.png)
-A scatter plot of age vs. charges colored by smoking status.
 
 
 
+## Modeling Specifications
 
 
-*Figure 1: Here is a caption for my diagram. This one shows a pengiun [1].*
+Supervised regression task
+Given feature vector(x) describing person, predict continuous outcome(y)
 
-## Modelling
+Models Used
+Linear Regression
+Random Forest 
+Gradient Boosting
+Neural Networks(MLP)
 
-Here are some more details about the machine learning approach, and why this was deemed appropriate for the dataset. 
-
-<p>
-When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
-  \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
-</p>
-
-The model might involve optimizing some quantity. You can include snippets of code if it is helpful to explain things.
 
 ```python
-from sklearn.ensemble import ExtraTreesClassifier
-from sklearn.datasets import make_classification
-X, y = make_classification(n_features=4, random_state=0)
-clf = ExtraTreesClassifier(n_estimators=100, random_state=0)
-clf.fit(X, y)
-clf.predict([[0, 0, 0, 0]])
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from sklearn.neural_network import MLPRegressor
+
+models = {
+    "Linear Regression": LinearRegression(),
+    "Random Forest": RandomForestRegressor(
+        n_estimators=100, random_state=42, max_depth=10
+    ),
+    "Gradient Boosting": GradientBoostingRegressor(
+        n_estimators=100, random_state=42, max_depth=5
+    ),
+    "Neural Network (MLP)": MLPRegressor(
+        hidden_layer_sizes=(100, 50),
+        max_iter=500,
+        random_state=42,
+        early_stopping=True,
+        validation_fraction=0.1,
+    ),
+}
+
+for name, model in models.items():
+    model.fit(X_train, y_train)
+
 ```
+Evaluation Metrics
+Coefficient of determination(R^2)
+Mean Absolute Error(MAE)
+Root Mean Squared Error(RMSE)
+Mean Absolute Percentage Error(MAPE)
 
-This is how the method was developed.
 
-## Results
 
-Figure X shows... [description of Figure X].
 
-## Discussion
 
-From Figure X, one can see that... [interpretation of Figure X].
+Data Results and Analysis :
 
-## Conclusion
+Random Forest
+(R^2 = 0.8645)
+MAE = $2,517.11
+RMSE = $4,586.63
+MAPE = 30.11%
+Gradient Boosting
+(R^2 = 0.8612)
+MAE = $2,485.65
+RMSE = $4,642.81
+MAPE = 29.50%
+Neural Network (MLP)
+(R^2 = 0.8040)
+MAE = $3,898.93
+RMSE = $5,515.77
+MAPE = 46.38%
+Linear Regression
+(R^2 = 0.7833)
+MAE = $4,186.51
+RMSE = $5,799.59
+MAPE = 47.09%
 
-Here is a brief summary. From this work, the following conclusions can be made:
-* first conclusion
-* second conclusion
 
-Here is how this work could be developed further in a future project.
 
-## References
-[1] DALL-E 3
 
-[back](./)
+
+
+
+From these results, we can see the non-linear models are all outperforming the linear regression, across all metrics that we are tracking. The most promising results are from the random forest approach, giving us a strong R^2 metric of 0.8645, as well as the lowest RMSE. It is important to note however, that Gradient Boosting did have a lower MAPE and a lower MAE, thus making gradient boosting and random forest the two winners. 
+
+Exploring the random forest further however I was curious to better understand its rationale, so I examined its ranked feature importances.
+
+smoker: 0.6168
+bmi: 0.2124
+age: 0.1334
+children: 0.0187
+region: 0.0127
+sex: 0.0059
+
+Furthermore here is also the plot that demonstrates how the predicted vs.actual charges are scattered for the random forest approach. From visual inspection it becomes clear that the model is indeed tracking actual values at a reasonably high level. Furthermore, we can see that residuals are centered around zero, and the major errors occur when the cost is being predicted is for abnormally high-cost individuals.
+
+![](assets/IMG/model_comparison_metrics.png)
+![](assets/IMG/best_model_analysis_Random_Forest.png)
+![](assets/IMG/feature_importance.png)
+
+
+
+
+Takeaways
+
+Tree-based ensemble methods outperform the linear regression and MLP configurations. Best model achieves as R^2 of 0.8645, meaning it can capture meaningful signal at a fairly high rate, but a MAPE of 30% demonstrates clear prediction possibilities, especially for individuals with very high charges
+Smoking across the board is the most important feature( .62 importance in random forest approach) in the ML analysis. This is also demonstrated when isolating for smokers versus no smokers, an average of $32k to $8.4k respectively.
+BMI,  age come after smoking in terms of factor importance, .21 and .13 respectively. High BMI old age can clearly be argued to contribute to higher charges within insurance.
+Children, region, sex are contributing relatively little, at least in the limited analysis we have conducted in this project.
+
+Limitations
+
+Size of this dataset is somewhat limited(only 1338 samples) thus may not generalize well to other populations
+The evaluation is being done using a simple train-test split system. Performing cross-validation, as well as more advanced techniques such as hyperparameter tuning, could boost the performance of the ML approaches we are employing
+The preprocessing being doen is quite straightforward, the results would probably improve given more advanced feature engineering(this includes things like non-linear transformations)
+
+
+
 
