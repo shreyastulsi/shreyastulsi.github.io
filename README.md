@@ -2,7 +2,7 @@
 
 ## Delivering your Project
 [Report](/project.md) <br>
-[Github](/https://github.com/shreyastulsi/c111-project)
+[Github Repository for Project](/https://github.com/shreyastulsi/c111-project)
 
 
 
