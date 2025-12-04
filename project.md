@@ -17,25 +17,25 @@ Through these experiments, my final conclusion was that the Random Forest approa
 
 Title: “Medical Cost Personal Datasets” insurance dataset on Kaggle
 
-Columns<br>
+Columns:<br>
 	age - age of the insurance beneficiary(years)<br>
-	Sex - male or female<br>
+	Sex - male or female <br>
 	cmi- body mass index<br>
 	children- number of dependants that are covered by insurance<br>
 	smoker- yes/no indication for smoking status<br>
 	region: residential region, northeast, southeast, southwest, northwest<br>
 	charges: individual medical costs billed by health insurance(USD)<br>
 
-When performing an initial analysis of the data, I computed the following statistics:
+When performing an initial analysis of the data, I computed the following statistics:<br>
 
 
-Number of samples: 1,338
-Features: age, sex, bmi, children, smoker, region
-Target: charges
-Average charges: $13,270.42
-Standard deviation of charges: $12,110.01
-Minimum charges: $1,121.87
-Maximum charges: $63,770.43
+Number of samples: 1,338 <br>
+Features: age, sex, bmi, children, smoker, region <br>
+Target: charges <br>
+Average charges: $13,270.42 <br>
+Standard deviation of charges: $12,110.01 <br>
+Minimum charges: $1,121.87 <br>
+Maximum charges: $63,770.43 <br>
 
 Before modeling, I performed the following preprocessing scripts:
 
@@ -66,10 +66,12 @@ def preprocess_data(df):
 
 ```
 
-Printed the datatypes, missing values counts to ensure a consistent schema(no errant values)
-Categorical encoding: for the non numerical datatypes(specifically sex, smoker and region, these were encoded using the Label Encoder)
-Train-test split: Split dataset into train and test datasets with 80/20 ratio, using train_test_split and a fixed random_state = 42
-Used StandardScaler for input features, so Linear Regression and ML would work better
+
+1. Categorical encoding: for the non numerical datatypes(specifically sex, smoker and region, these were encoded using the Label Encoder) <br>
+
+2. Train-test split: Split dataset into train and test datasets with 80/20 ratio, using train_test_split and a fixed random_state = 42 <br>
+
+3. Used StandardScaler for input features, so Linear Regression and ML would work better <br>
 
 
 I then also performed further exploratory data analysis to visualize the relationships within my dataset in a clearer fashion.
@@ -79,8 +81,12 @@ I then also performed further exploratory data analysis to visualize the relatio
 </figure>
 
 
-![](assets/IMG/eda_visualizations.png)
 
+
+<figure>
+  <img src="assets/IMG/eda_visualizations.png" width="500" alt="EDA visualizations for insurance charges">
+  <figcaption>Figure 2: EDA panels showing charges distribution, smoker/region boxplots, and age vs. charges by smoking status.</figcaption>
+</figure>
 
 
 ## Modeling Specifications
@@ -89,11 +95,11 @@ I then also performed further exploratory data analysis to visualize the relatio
 Supervised regression task
 Given feature vector(x) describing person, predict continuous outcome(y)
 
-Models Used
-Linear Regression
-Random Forest 
-Gradient Boosting
-Neural Networks(MLP)
+Models Used:<br>
+Linear Regression<br>
+Random Forest <br>
+Gradient Boosting<br>
+Neural Networks(MLP)<br>
 
 
 ```python
