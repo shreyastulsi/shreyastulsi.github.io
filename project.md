@@ -88,7 +88,7 @@ I then also performed further exploratory data analysis to visualize the relatio
 </figure>
 
 
-
+<br>
 
 <figure>
   <img src="assets/IMG/eda_visualizations.png" width="500" alt="EDA visualizations for insurance charges">
