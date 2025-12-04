@@ -15,7 +15,9 @@ Through these experiments, my final conclusion was that the Random Forest approa
 
 ## Data Specifications
 
-Title: “Medical Cost Personal Datasets” insurance dataset on Kaggle
+[Kaggle: Medical Cost Personal Datasets](https://www.kaggle.com/datasets/mirichoi0218/insurance)
+
+
 
 Columns:<br>
 	age - age of the insurance beneficiary(years)<br>
