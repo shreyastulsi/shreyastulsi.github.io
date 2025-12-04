@@ -1,18 +1,17 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-## My Project
+## Project Overview
 
-I applied machine learning techniques to investigate...odk Below is my report.
+In this project, I applied various ML techniques to demonstrate the Atmospheric and Oceanic Studies C111 course at UCLA, to study the impacts of both demographic factors and lifestyle choices on an individual's lifetime medical charges.
+
 
 ***
 
 ## Introduction 
 
-Here is a summary description of the topic. Here is the problem. This is why the problem is important.
+Health care costs have risen dramatically over the past few decades, making it more important than ever for both policy issuers and insurance providers to understand the key contributors, as well as overall emerging trends. Specifically, the goal of this project is to provide a predictive framework that, when given demographic and lifestyle characteristics about an individual, can give a reasonable estimate of their lifetime insurance cost. In this project, I used a dataset publicly available from Kaggle, which considered the following attributes: age, sex, bmi, #of children, smoker, region when predicting the target variable charges( individual medical insurance costs in USD). This setup naturally caused me to pursue a supervised ml regression problem, where the target became the continuous variable charges. I sampled several regression approaches: Linear regression, Random Forest, Gradient Boosting, and even a Neural Network(MLP). These approaches were then evaluated on common ML metrics such as (R^2), mean absolute error(MAE), root mean squared error(RSME), and mean absolute percentage error(MAPE).
 
-There is some dataset that we can use to help solve this problem. This allows a machine learning approach. This is how I will solve the problem using supervised/unsupervised/reinforcement/etc. machine learning.
-
-We did this to solve the problem. We concluded that...
+Through these experiments, my final conclusion was that the Random Forest approach performed the best, and offered the best predictive abilities for the problem statement out of any of the approaches. Furthermore, the key contributors were concluded as smoker status, BMI, and age, with smoking being the clear leading cause. 
 
 ## Data
 
