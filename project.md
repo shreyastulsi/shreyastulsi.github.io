@@ -76,10 +76,15 @@ In the beginning of this project, I had not completed this preprocessing script 
 
 
 
-I then also performed further exploratory data analysis to visualize the relationships within my dataset in a clearer fashion.
+I then also performed further exploratory data analysis to visualize the relationships within my dataset in a clearer fashion. The goal here was to get an understanding of the numerical and non-numerical features in my dataset, as well as the overall frequencies, so before I run the ML model, I can have a general sense of what I expect to occur.
+
+
+<br>
+<br>
+
 <figure>
   <img src="assets/IMG/correlation_heatmap.png" width="500" alt="Correlation heatmap">
-  <figcaption>Figure 1: Correlation heatmap of numeric features.</figcaption>
+  <figcaption>Correlation heatmap of numeric features</figcaption>
 </figure>
 
 
@@ -87,7 +92,10 @@ I then also performed further exploratory data analysis to visualize the relatio
 
 <figure>
   <img src="assets/IMG/eda_visualizations.png" width="500" alt="EDA visualizations for insurance charges">
-  <figcaption>Figure 2: EDA panels showing charges distribution, smoker/region boxplots, and age vs. charges by smoking status.</figcaption>
+  <figcaption>Top left panel: Histogram of charges (overall distribution). <br>
+Top right panel: Boxplot of charges by smoker (yes vs. no).<br>
+Bottom left panel: Boxplot of charges by region.<br>
+Bottom right panel: Scatter of age vs. charges, colored by smoking status.<br></figcaption>
 </figure>
 
 From the correlation analysis saved in analysis_report.txt, the absolute correlations with charges were: <br>
