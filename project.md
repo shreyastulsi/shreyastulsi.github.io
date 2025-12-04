@@ -17,7 +17,7 @@ Through these experiments, my final conclusion was that the Random Forest approa
 
 Here is an overview of the dataset, how it was obtained and the preprocessing steps taken, with some plots!
 
-![](assets/IMG/correlation_heatmap.png){: width="500" }
+![](assets/IMG/correlation_heatmap.png)
 
 *Figure 1: Here is a caption for my diagram. This one shows a pengiun [1].*
 
