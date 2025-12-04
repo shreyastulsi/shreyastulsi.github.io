@@ -17,14 +17,14 @@ Through these experiments, my final conclusion was that the Random Forest approa
 
 Title: “Medical Cost Personal Datasets” insurance dataset on Kaggle
 
-Columns
-	age - age of the insurance beneficiary(years)
-	Sex - male or female
-	cmi- body mass index
-	children- number of dependants that are covered by insurance
-	smoker- yes/no indication for smoking status
-	region: residential region, northeast, southeast, southwest, northwest
-	charges: individual medical costs billed by health insurance(USD)
+Columns<br>
+	age - age of the insurance beneficiary(years)<br>
+	Sex - male or female<br>
+	cmi- body mass index<br>
+	children- number of dependants that are covered by insurance<br>
+	smoker- yes/no indication for smoking status<br>
+	region: residential region, northeast, southeast, southwest, northwest<br>
+	charges: individual medical costs billed by health insurance(USD)<br>
 
 When performing an initial analysis of the data, I computed the following statistics:
 
