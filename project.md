@@ -71,7 +71,9 @@ def preprocess_data(df):
 
 2. Train-test split: Split dataset into train and test datasets with 80/20 ratio, using train_test_split and a fixed random_state = 42 <br>
 
-3. Used StandardScaler for input features, so Linear Regression and ML would work better <br>
+3. Used StandardScaler for input features<br>
+In the beginning of this project, I had not completed this preprocessing script and doign so was causiing major issues. To be specific, numerical features such as BMI and age 	were on severly different scales, preventing effective training for the MLP and linear regression models. The MLP's loss would fluctatuate severely because due to the large-scale features dominating the gradients. Once such scaling was applied to the preprocessing, this no longer remained an issue, and the MLP model was able to converge properly.
+
 
 
 I then also performed further exploratory data analysis to visualize the relationships within my dataset in a clearer fashion.
@@ -99,12 +101,14 @@ Average charges for smokers: $32,050.23 <br>
 Average charges for non-smokers: $8,434.27<br>
 Difference: $23,615.96 (about 280% higher for smokers)<br>
 
+My rationale for trying to examine the smoker non-smoker relation before performing the ML analysis was based on my precursory knowledge going into this project. Furthermore, I wanted to meaure the pure linear correlations that exist between diffrent variables, and thus I did so for the numeric componenets such as age, bmi and children. However, for smoking since it is a binary yes no, I had to do my precursory analysis in a slighly differnet manner, using the heatmaps. Even before starting the actual ML analysis, we can see that there are strong indicators that smoking, age, bmi should be some of our most important variables.
+
 
 ## Modeling Specifications
 
 
-Supervised regression task
-Given feature vector(x) describing person, predict continuous outcome(y)
+Supervised regression task<br>
+Given feature vector(x) describing person, predict continuous outcome(y):<br>
 
 Models Used:<br>
 Linear Regression<br>
@@ -139,77 +143,94 @@ for name, model in models.items():
     model.fit(X_train, y_train)
 
 ```
-Evaluation Metrics
-Coefficient of determination(R^2)
-Mean Absolute Error(MAE)
-Root Mean Squared Error(RMSE)
-Mean Absolute Percentage Error(MAPE)
+Evaluation Metrics:<br>
+Coefficient of determination(R^2)<br>
+Mean Absolute Error(MAE)<br>
+Root Mean Squared Error(RMSE)<br>
+Mean Absolute Percentage Error(MAPE)<br>
+
+
+
+
+Data Results and Analysis<br>:
+
+Random Forest<br>
+(R^2 = 0.8645)<br>
+MAE = $2,517.11<br>
+RMSE = $4,586.63<br>
+MAPE = 30.11%<br>
+
+<br>
+
+
+Gradient Boosting<br>
+(R^2 = 0.8612)<br>
+MAE = $2,485.65<br>
+RMSE = $4,642.81<br>
+MAPE = 29.50%<br>
+
+<br>
+
+Neural Network (MLP)<br>
+(R^2 = 0.8040)<br>
+MAE = $3,898.93<br>
+RMSE = $5,515.77<br>
+MAPE = 46.38%<br>
+
+<br>
+Linear Regression<br>
+(R^2 = 0.7833)<br>
+MAE = $4,186.51<br>
+RMSE = $5,799.59<br>
+MAPE = 47.09%<br>
 
 
 
 
 
-Data Results and Analysis :
 
-Random Forest
-(R^2 = 0.8645)
-MAE = $2,517.11
-RMSE = $4,586.63
-MAPE = 30.11%
-Gradient Boosting
-(R^2 = 0.8612)
-MAE = $2,485.65
-RMSE = $4,642.81
-MAPE = 29.50%
-Neural Network (MLP)
-(R^2 = 0.8040)
-MAE = $3,898.93
-RMSE = $5,515.77
-MAPE = 46.38%
-Linear Regression
-(R^2 = 0.7833)
-MAE = $4,186.51
-RMSE = $5,799.59
-MAPE = 47.09%
+From these results, we can see the non-linear models are all outperforming the linear regression, across all metrics that we are tracking. The most promising results are from the random forest approach, giving us a strong R^2 metric of 0.8645, as well as the lowest RMSE. It is important to note however, that Gradient Boosting did have a lower MAPE and a lower MAE, thus making gradient boosting and random forest the two winners. <br>
 
+Exploring the random forest further however I was curious to better understand its rationale, so I examined its ranked feature importances.<br>
 
-
-
-
-
-
-From these results, we can see the non-linear models are all outperforming the linear regression, across all metrics that we are tracking. The most promising results are from the random forest approach, giving us a strong R^2 metric of 0.8645, as well as the lowest RMSE. It is important to note however, that Gradient Boosting did have a lower MAPE and a lower MAE, thus making gradient boosting and random forest the two winners. 
-
-Exploring the random forest further however I was curious to better understand its rationale, so I examined its ranked feature importances.
-
-smoker: 0.6168
-bmi: 0.2124
-age: 0.1334
-children: 0.0187
-region: 0.0127
-sex: 0.0059
+smoker: 0.6168<br>
+bmi: 0.2124<br>
+age: 0.1334<br>
+children: 0.0187<br>
+region: 0.0127<br>
+sex: 0.0059<br>
 
 Furthermore here is also the plot that demonstrates how the predicted vs.actual charges are scattered for the random forest approach. From visual inspection it becomes clear that the model is indeed tracking actual values at a reasonably high level. Furthermore, we can see that residuals are centered around zero, and the major errors occur when the cost is being predicted is for abnormally high-cost individuals.
 
-![](assets/IMG/model_comparison_metrics.png)
-![](assets/IMG/best_model_analysis_Random_Forest.png)
-![](assets/IMG/feature_importance.png)
+<figure>
+  <img src="assets/IMG/model_comparison_metrics.png" width="600" alt="Model comparison metrics">
+  <figcaption>Side-by-side comparison of R², RMSE, MAE, and MAPE across all models.</figcaption>
+</figure>
+
+<figure>
+  <img src="assets/IMG/best_model_analysis_Random_Forest.png" width="600" alt="Random Forest best model analysis">
+  <figcaption>Predicted vs. actual plus residual diagnostics (Random Forest).</figcaption>
+</figure>
+
+<figure>
+  <img src="assets/IMG/feature_importance.png" width="600" alt="Feature importance for tree models">
+  <figcaption>Feature importance for the tree-based models, highlighting top drivers of insurance charges.</figcaption>
+</figure>
 
 
 
+Takeaways:<br>
 
-Takeaways
-
-Tree-based ensemble methods outperform the linear regression and MLP configurations. Best model achieves as R^2 of 0.8645, meaning it can capture meaningful signal at a fairly high rate, but a MAPE of 30% demonstrates clear prediction possibilities, especially for individuals with very high charges
-Smoking across the board is the most important feature( .62 importance in random forest approach) in the ML analysis. This is also demonstrated when isolating for smokers versus no smokers, an average of $32k to $8.4k respectively.
+Tree-based ensemble methods outperform the linear regression and MLP configurations. Best model achieves as R^2 of 0.8645, meaning it can capture meaningful signal at a fairly high rate, but a MAPE of 30% demonstrates clear prediction possibilities, especially for individuals with very high charges.<br>
+Smoking across the board is the most important feature( .62 importance in random forest approach) in the ML analysis. This is also demonstrated when isolating for smokers versus no smokers, an average of $32k to $8.4k respectively. <br>
 BMI,  age come after smoking in terms of factor importance, .21 and .13 respectively. High BMI old age can clearly be argued to contribute to higher charges within insurance.
-Children, region, sex are contributing relatively little, at least in the limited analysis we have conducted in this project.
+Children, region, sex are contributing relatively little, at least in the limited analysis we have conducted in this project.<br>
 
-Limitations
+Limitations:<br>
 
-Size of this dataset is somewhat limited(only 1338 samples) thus may not generalize well to other populations
-The evaluation is being done using a simple train-test split system. Performing cross-validation, as well as more advanced techniques such as hyperparameter tuning, could boost the performance of the ML approaches we are employing
-The preprocessing being doen is quite straightforward, the results would probably improve given more advanced feature engineering(this includes things like non-linear transformations)
+Size of this dataset is somewhat limited(only 1338 samples) thus may not generalize well to other populations<br>
+The evaluation is being done using a simple train-test split system. Performing cross-validation, as well as more advanced techniques such as hyperparameter tuning, could boost the performance of the ML approaches we are employing<br>
+The preprocessing being doen is quite straightforward, the results would probably improve given more advanced feature engineering(this includes things like non-linear transformations)<br>
 
 
 
