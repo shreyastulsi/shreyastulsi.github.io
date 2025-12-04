@@ -39,6 +39,33 @@ Maximum charges: $63,770.43
 
 Before modeling, I performed the following preprocessing scripts:
 
+```python
+def preprocess_data(df):
+        df_processed = df.copy()
+    categorical_cols = ["sex", "smoker", "region"]
+    label_encoders = {}
+    
+    for col in categorical_cols:
+        le = LabelEncoder()
+        df_processed[col] = le.fit_transform(df_processed[col])
+        label_encoders[col] = le
+    
+    X = df_processed.drop("charges", axis=1).values
+    y = df_processed["charges"].values
+    
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=42
+    )
+    
+    scaler = StandardScaler()
+    X_train = scaler.fit_transform(X_train)
+    X_test = scaler.transform(X_test)
+    
+    return X_train, X_test, y_train, y_test
+
+
+```
+
 Printed the datatypes, missing values counts to ensure a consistent schema(no errant values)
 Categorical encoding: for the non numerical datatypes(specifically sex, smoker and region, these were encoded using the Label Encoder)
 Train-test split: Split dataset into train and test datasets with 80/20 ratio, using train_test_split and a fixed random_state = 42
