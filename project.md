@@ -88,6 +88,17 @@ I then also performed further exploratory data analysis to visualize the relatio
   <figcaption>Figure 2: EDA panels showing charges distribution, smoker/region boxplots, and age vs. charges by smoking status.</figcaption>
 </figure>
 
+From the correlation analysis saved in analysis_report.txt, the absolute correlations with charges were: <br>
+age: 0.2990 <br>
+bmi: 0.1983 <br>
+children: 0.0680 <br>
+
+Additionally, I compared average charges for smokers and non-smokers:<br>
+
+Average charges for smokers: $32,050.23 <br>
+Average charges for non-smokers: $8,434.27<br>
+Difference: $23,615.96 (about 280% higher for smokers)<br>
+
 
 ## Modeling Specifications
 
