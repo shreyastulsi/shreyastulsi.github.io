@@ -209,16 +209,20 @@ region: 0.0127<br>
 sex: 0.0059<br>
 
 Furthermore here is also the plot that demonstrates how the predicted vs.actual charges are scattered for the random forest approach. From visual inspection it becomes clear that the model is indeed tracking actual values at a reasonably high level. Furthermore, we can see that residuals are centered around zero, and the major errors occur when the cost is being predicted is for abnormally high-cost individuals.
+<br>
+<figure>
+  <img src="assets/IMG/best_model_analysis_Random_Forest.png" width="600" alt="Random Forest best model analysis">
+  <figcaption>Predicted vs. actual plus residual diagnostics (Random Forest).</figcaption>
+</figure>
+<br>
 
 <figure>
   <img src="assets/IMG/model_comparison_metrics.png" width="600" alt="Model comparison metrics">
   <figcaption>Side-by-side comparison of R², RMSE, MAE, and MAPE across all models.</figcaption>
 </figure>
+<br>
 
-<figure>
-  <img src="assets/IMG/best_model_analysis_Random_Forest.png" width="600" alt="Random Forest best model analysis">
-  <figcaption>Predicted vs. actual plus residual diagnostics (Random Forest).</figcaption>
-</figure>
+
 
 <figure>
   <img src="assets/IMG/feature_importance.png" width="600" alt="Feature importance for tree models">
