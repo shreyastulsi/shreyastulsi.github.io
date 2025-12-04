@@ -72,7 +72,7 @@ def preprocess_data(df):
 2. Train-test split: Split dataset into train and test datasets with 80/20 ratio, using train_test_split and a fixed random_state = 42 <br>
 
 3. Used StandardScaler for input features<br>
-In the beginning of this project, I had not completed this preprocessing script and doign so was causiing major issues. To be specific, numerical features such as BMI and age 	were on severly different scales, preventing effective training for the MLP and linear regression models. The MLP's loss would fluctatuate severely because due to the large-scale features dominating the gradients. Once such scaling was applied to the preprocessing, this no longer remained an issue, and the MLP model was able to converge properly.
+In the beginning of this project, I had not completed this preprocessing script and doign so was causing major issues. To be specific, numerical features such as BMI and age 	were on severly different scales, preventing effective training for the MLP and linear regression models. The MLP's loss would fluctatuate severely because due to the large-scale features dominating the gradients. Once such scaling was applied to the preprocessing, this no longer remained an issue, and the MLP model was able to converge properly.
 
 
 
