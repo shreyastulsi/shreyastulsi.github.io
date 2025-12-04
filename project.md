@@ -73,7 +73,11 @@ Used StandardScaler for input features, so Linear Regression and ML would work b
 
 
 I then also performed further exploratory data analysis to visualize the relationships within my dataset in a clearer fashion.
-<img src="assets/IMG/correlation_heatmap.png" width="500" alt="Correlation heatmap">
+<figure>
+  <img src="assets/IMG/correlation_heatmap.png" width="500" alt="Correlation heatmap">
+  <figcaption>Figure 1: Correlation heatmap of numeric features.</figcaption>
+</figure>
+
 
 ![](assets/IMG/eda_visualizations.png)
 
