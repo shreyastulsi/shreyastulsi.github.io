@@ -197,25 +197,6 @@ MAPE = 47.09%<br>
 
 
 
-From these results, we can see the non-linear models are all outperforming the linear regression, across all metrics that we are tracking. The most promising results are from the random forest approach, giving us a strong R^2 metric of 0.8645, as well as the lowest RMSE. It is important to note however, that Gradient Boosting did have a lower MAPE and a lower MAE, thus making gradient boosting and random forest the two winners. <br>
-
-Exploring the random forest further however I was curious to better understand its rationale, so I examined its ranked feature importances.<br>
-
-smoker: 0.6168<br>
-bmi: 0.2124<br>
-age: 0.1334<br>
-children: 0.0187<br>
-region: 0.0127<br>
-sex: 0.0059<br>
-
-Furthermore here is also the plot that demonstrates how the predicted vs.actual charges are scattered for the random forest approach. From visual inspection it becomes clear that the model is indeed tracking actual values at a reasonably high level. Furthermore, we can see that residuals are centered around zero, and the major errors occur when the cost is being predicted is for abnormally high-cost individuals.
-<br>
-<figure>
-  <img src="assets/IMG/best_model_analysis_Random_Forest.png" width="600" alt="Random Forest best model analysis">
-  <figcaption>Predicted vs. actual plus residual diagnostics (Random Forest).</figcaption>
-</figure>
-<br>
-
 <figure>
   <img src="assets/IMG/model_comparison_metrics.png" width="600" alt="Model comparison metrics">
   <figcaption>Side-by-side comparison of R², RMSE, MAE, and MAPE across all models.</figcaption>
@@ -229,6 +210,28 @@ Furthermore here is also the plot that demonstrates how the predicted vs.actual 
   <figcaption>Feature importance for the tree-based models, highlighting top drivers of insurance charges.</figcaption>
 </figure>
 
+
+<br>
+From these results, we can see the non-linear models are all outperforming the linear regression, across all metrics that we are tracking. The most promising results are from the random forest approach, giving us a strong R^2 metric of 0.8645, as well as the lowest RMSE. It is important to note however, that Gradient Boosting did have a lower MAPE and a lower MAE, thus making gradient boosting and random forest the two winners. <br>
+
+Exploring the random forest further however I was curious to better understand its rationale, so I examined its ranked feature importances.<br>
+
+
+smoker: 0.6168<br>
+bmi: 0.2124<br>
+age: 0.1334<br>
+children: 0.0187<br>
+region: 0.0127<br>
+sex: 0.0059<br>
+
+Furthermore here is also the plot that demonstrates how the predicted vs.actual charges are scattered for the random forest approach. From visual inspection it becomes clear that the model is indeed tracking actual values at a reasonably high level. Furthermore, we can see that residuals are centered around zero, and the major errors occur when the cost is being predicted is for abnormally high-cost individuals.
+
+<br>
+<figure>
+  <img src="assets/IMG/best_model_analysis_Random_Forest.png" width="600" alt="Random Forest best model analysis">
+  <figcaption>Predicted vs. actual plus residual diagnostics (Random Forest).</figcaption>
+</figure>
+<br>
 
 
 Takeaways:<br>
