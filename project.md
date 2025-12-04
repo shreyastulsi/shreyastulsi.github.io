@@ -13,11 +13,49 @@ Health care costs have risen dramatically over the past few decades, making it m
 
 Through these experiments, my final conclusion was that the Random Forest approach performed the best, and offered the best predictive abilities for the problem statement out of any of the approaches. Furthermore, the key contributors were concluded as smoker status, BMI, and age, with smoking being the clear leading cause. 
 
-## Data
+## Data Specifications
 
-Here is an overview of the dataset, how it was obtained and the preprocessing steps taken, with some plots!
+Title: “Medical Cost Personal Datasets” insurance dataset on Kaggle
 
+Columns
+	age - age of the insurance beneficiary(years)
+	Sex - male or female
+	cmi- body mass index
+	children- number of dependants that are covered by insurance
+	smoker- yes/no indication for smoking status
+	region: residential region, northeast, southeast, southwest, northwest
+	charges: individual medical costs billed by health insurance(USD)
+
+When performing an initial analysis of the data, I computed the following statistics:
+
+
+Number of samples: 1,338
+Features: age, sex, bmi, children, smoker, region
+Target: charges
+Average charges: $13,270.42
+Standard deviation of charges: $12,110.01
+Minimum charges: $1,121.87
+Maximum charges: $63,770.43
+
+Before modeling, I performed the following preprocessing scripts:
+
+Printed the datatypes, missing values counts to ensure a consistent schema(no errant values)
+Categorical encoding: for the non numerical datatypes(specifically sex, smoker and region, these were encoded using the Label Encoder)
+Train-test split: Split dataset into train and test datasets with 80/20 ratio, using train_test_split and a fixed random_state = 42
+Used StandardScaler for input features, so Linear Regression and ML would work better
+
+
+I then also performed further exploratory data analysis to visualize the relationships within my dataset in a clearer fashion.
+
+A correlation heatmap for all numeric features.
 ![](assets/IMG/correlation_heatmap.png)
+A histogram of charges and boxplots of charges by smoker and by region.
+![](assets/IMG/eda_visualizations.png)
+A scatter plot of age vs. charges colored by smoking status.
+
+
+
+
 
 *Figure 1: Here is a caption for my diagram. This one shows a pengiun [1].*
 
