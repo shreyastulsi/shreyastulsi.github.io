@@ -159,13 +159,13 @@ for name, model in models.items():
 ```
 <br>
 
-**Evaluation Metrics**<br>
+**Evaluation Metrics** <br><br>
 Coefficient of determination(R^2)<br>
 Mean Absolute Error(MAE)<br>
 Root Mean Squared Error(RMSE)<br>
 Mean Absolute Percentage Error(MAPE)<br>
 
-
+<br>
 
 
 
