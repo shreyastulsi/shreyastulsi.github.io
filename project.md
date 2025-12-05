@@ -87,7 +87,7 @@ I then also performed further exploratory data analysis to visualize the relatio
   <figcaption>Correlation heatmap of numeric features</figcaption>
 </figure>
 
-
+<br>
 <br>
 
 <figure>
