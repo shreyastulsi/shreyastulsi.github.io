@@ -236,7 +236,7 @@ Furthermore here is also the plot that demonstrates how the predicted vs.actual 
   <figcaption>Predicted vs. actual plus residual diagnostics (Random Forest).</figcaption>
 </figure>
 <br>
-
+<br>
 
 Takeaways:<br>
 
