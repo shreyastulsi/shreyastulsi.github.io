@@ -120,7 +120,7 @@ My rationale for trying to examine the smoker non-smoker relation before perform
 Supervised regression task<br>
 Given feature vector(x) describing person, predict continuous outcome(y):<br>
 
-Models Used:<br>
+**Models Used:**<br>
 Linear Regression<br>
 Random Forest <br>
 Gradient Boosting<br>
@@ -153,7 +153,8 @@ for name, model in models.items():
     model.fit(X_train, y_train)
 
 ```
-Evaluation Metrics:<br>
+<br>
+**Evaluation Metrics:**<br>
 Coefficient of determination(R^2)<br>
 Mean Absolute Error(MAE)<br>
 Root Mean Squared Error(RMSE)<br>
@@ -162,7 +163,7 @@ Mean Absolute Percentage Error(MAPE)<br>
 
 
 
-Data Results and Analysis:<br>
+**Data Results and Analysis:**<br>
 
 Random Forest<br>
 (R^2 = 0.8645)<br>
@@ -238,7 +239,7 @@ Furthermore here is also the plot that demonstrates how the predicted vs.actual 
 <br>
 <br>
 
-Takeaways:<br>
+**Takeaways:**<br>
 
 1. Tree-based ensemble methods outperform the linear regression and MLP configurations. Best model achieves as R^2 of 0.8645, meaning it can capture meaningful signal at a fairly high rate, but a MAPE of 30% demonstrates clear prediction possibilities, especially for individuals with very high charges.<br>
 2. Smoking across the board is the most important feature( .62 importance in random forest approach) in the ML analysis. This is also demonstrated when isolating for smokers versus no smokers, an average of $32k to $8.4k respectively. <br>
@@ -246,7 +247,7 @@ Takeaways:<br>
 4. Number of children, geographic region, and sex are contributing relatively little, at least in the limited analysis we have conducted in this project.<br>
 
 
-Limitations:<br>
+**Limitations:**<br>
 
 1. Size of this dataset is somewhat limited(only 1338 samples) thus may not generalize well to other populations<br>
 2. The evaluation is being done using a simple train-test split system. Performing cross-validation, as well as more advanced techniques such as hyperparameter tuning, could boost the 3. performance of the ML approaches we are employing<br>
