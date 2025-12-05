@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-In this project, I applied various ML techniques to demonstrate the Atmospheric and Oceanic Studies C111 course at UCLA, to study the impacts of both demographic factors and lifestyle choices on an individual's lifetime medical charges.
+In this project, I applied various ML techniques that I learned in the C111 - Introduction to Machine Learning for Physical Sciences course at UCLA, to study the impacts of both demographic factors and lifestyle choices on an individual's lifetime medical charges.
 
 
 ***
