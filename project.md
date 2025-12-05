@@ -9,7 +9,7 @@ In this project, I applied various ML techniques that I learned in the C111 - In
 
 ## Introduction 
 
-Health care costs have risen dramatically over the past few decades, making it more important than ever for both policy issuers and insurance providers to understand the key contributors, as well as overall emerging trends. Specifically, the goal of this project is to provide a predictive framework that, when given demographic and lifestyle characteristics about an individual, can give a reasonable estimate of their lifetime insurance cost.<br><br>In this project, I used a dataset publicly available from Kaggle, which considered the following attributes: age, sex, bmi, number of children, smoker, region when predicting the target variable **charges**(individual medical insurance costs in USD). This setup naturally caused me to pursue a supervised ML regression problem, where the target became the continuous variable charges.<br><br>I sampled several regression approaches: **Linear regression**, **Random Forest**, **Gradient Boosting**, and even a **Neural Network(MLP)**. These approaches were then evaluated on common ML metrics such as **(R^2)**, **mean absolute error(MAE)**, **root mean squared error(RSME)**, and **mean absolute percentage error(MAPE)**. <br><br>
+Health care costs have risen dramatically over the past few decades, making it more important than ever for both policy issuers and insurance providers to understand the key contributors, as well as overall emerging trends. Specifically, the goal of this project is to provide a predictive framework that, when given demographic and lifestyle characteristics about an individual, can give a reasonable estimate of their lifetime insurance cost.<br><br>In this project, I used a dataset publicly available from Kaggle, which considered the following attributes: age, sex, bmi, number of children, smoker, region when predicting the target variable charges(individual medical insurance costs in USD). This setup naturally caused me to pursue a supervised ML regression problem, where the target became the continuous variable charges.<br><br>I sampled several regression approaches: Linear regression, Random Forest, Gradient Boosting, and even a Neural Network(MLP). These approaches were then evaluated on common ML metrics such as (R^2), mean absolute error(MAE), root mean squared error(RSME), and mean absolute percentage error(MAPE). <br><br>
 
 Through these experiments, my final conclusion was that the **Random Forest** approach performed the best, and offered the best predictive abilities for the problem statement out of any of the approaches. Furthermore, the key contributors were concluded as smoker status, BMI, and age, with smoking being the clear leading cause. 
 
@@ -126,6 +126,10 @@ Random Forest <br>
 Gradient Boosting<br>
 Neural Networks(MLP)<br>
 
+**Motivations for Choosing Particular Models**
+<br>
+
+My aim with choosing a standard Linear Regression model to begin with was to establish a baseline attempt at performing this predictive analysis, as well as to have a model that was fast to train and easy to interpret. By setting this baseline, even if the correlation was not high, it would serve as a good benchmark to improve upon in the more complex models. Random Forest was my next pick, because it works well with noisy data, can be tuned fairly easily, and gives the ability to view feature importance, thus making it easier to interpret its results. Gradient boosting also produces such feature importances, as well as corrects residual errors in a usually more effective manner, so I thought this would be an interesting experiment. Finally, MLP was sort of the wildcard experiment, and I was intrigued to see how it would perform in comparison to the tree based approaches.
 
 ```python
 from sklearn.linear_model import LinearRegression
