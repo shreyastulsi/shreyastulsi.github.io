@@ -98,6 +98,8 @@ Bottom left panel: Boxplot of charges by region.<br>
 Bottom right panel: Scatter of age vs. charges, colored by smoking status.<br></figcaption>
 </figure>
 
+<br>
+<br>
 From the correlation analysis saved in analysis_report.txt, the absolute correlations with charges were: <br>
 age: 0.2990 <br>
 bmi: 0.1983 <br>
