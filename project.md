@@ -247,7 +247,7 @@ Furthermore here is also the plot that demonstrates how the predicted vs.actual 
 
 **Takeaways:**<br>
 
-1. Tree-based ensemble methods outperform the linear regression and MLP configurations. Best model achieves as R^2 of 0.8645, meaning it can capture meaningful signal at a fairly high rate, but a MAPE of 30% demonstrates clear prediction possibilities, especially for individuals with very high charges.<br>
+1. Tree-based ensemble methods outperform the linear regression and MLP configurations. Best model(random forest) achieves as R^2 of 0.8645, meaning it can capture meaningful signal at a fairly high rate, but a MAPE of 30% demonstrates clear prediction possibilities, especially for individuals with very high charges.<br>
 2. Smoking across the board is the most important feature( .62 importance in random forest approach) in the ML analysis. This is also demonstrated when isolating for smokers versus no smokers, an average of $32k to $8.4k respectively. <br>
 3. BMI, age come after smoking in terms of factor importance, .21 and .13 respectively. High BMI old age can clearly be argued to contribute to higher charges within insurance.
 4. Number of children, geographic region, and sex are contributing relatively little, at least in the limited analysis we have conducted in this project.<br>
@@ -256,7 +256,7 @@ Furthermore here is also the plot that demonstrates how the predicted vs.actual 
 **Limitations:**<br>
 
 1. Size of this dataset is somewhat limited(only 1338 samples) thus may not generalize well to other populations<br>
-2. The evaluation is being done using a simple train-test split system. Performing cross-validation, as well as more advanced techniques such as hyperparameter tuning, could boost the 3. performance of the ML approaches we are employing<br>
+2. The evaluation is being done using a simple train-test split system. Performing cross-validation, as well as more advanced techniques such as hyperparameter tuning, could boost the peformance of the ML approaches we are employing<br>
 The preprocessing being doen is quite straightforward, the results would probably improve given more advanced feature engineering(this includes things like non-linear transformations)<br>
 
 
