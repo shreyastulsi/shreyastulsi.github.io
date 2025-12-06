@@ -11,7 +11,7 @@ In this project, I applied various ML techniques that I learned in the C111 - In
 
 Health care costs have risen dramatically over the past few decades, making it more important than ever for both policy issuers and insurance providers to understand the key contributors, as well as overall emerging trends. Specifically, the goal of this project is to provide a predictive framework that, when given demographic and lifestyle characteristics about an individual, can give a reasonable estimate of their lifetime insurance cost.<br><br>In this project, I used a dataset publicly available from Kaggle, which considered the following attributes: age, sex, bmi, number of children, smoker, region when predicting the target variable charges(individual medical insurance costs in USD). This setup naturally caused me to pursue a supervised ML regression problem, where the target became the continuous variable charges.<br><br>I sampled several regression approaches: Linear regression, Random Forest, Gradient Boosting, and even a Neural Network(MLP). These approaches were then evaluated on common ML metrics such as (R^2), mean absolute error(MAE), root mean squared error(RSME), and mean absolute percentage error(MAPE). <br><br>
 
-Through these experiments, my final conclusion was that the **Random Forest** approach performed the best, and offered the best predictive abilities for the problem statement out of any of the approaches. Furthermore, the key contributors were concluded as smoker status, BMI, and age, with smoking being the clear leading cause. 
+Through these experiments, my final conclusion was that the Random Forest approach performed the best, and offered the best predictive abilities for the problem statement out of any of the approaches. Furthermore, the key contributors were concluded as smoker status, BMI, and age, with smoking being the clear leading cause. 
 
 ## Data Specifications
 
@@ -126,7 +126,7 @@ Random Forest <br>
 Gradient Boosting<br>
 Neural Networks(MLP)<br>
 
-**Motivations for Choosing Particular Models**
+**Motivations for Choosing Particular Models:**
 <br>
 
 My aim with choosing a standard Linear Regression model to begin with was to establish a baseline attempt at performing this predictive analysis, as well as to have a model that was fast to train and easy to interpret. By setting this baseline, even if the correlation was not high, it would serve as a good benchmark to improve upon in the more complex models. Random Forest was my next pick, because it works well with noisy data, can be tuned fairly easily, and gives the ability to view feature importance, thus making it easier to interpret its results. Gradient boosting also produces such feature importances, as well as corrects residual errors in a usually more effective manner, so I thought this would be an interesting experiment. Finally, MLP was sort of the wildcard experiment, and I was intrigued to see how it would perform in comparison to the tree based approaches.
@@ -159,7 +159,7 @@ for name, model in models.items():
 ```
 <br>
 
-**Evaluation Metrics** <br><br>
+**Evaluation Metrics:** <br><br>
 Coefficient of determination(R^2)<br>
 Mean Absolute Error(MAE)<br>
 Root Mean Squared Error(RMSE)<br>
@@ -247,7 +247,7 @@ Furthermore here is also the plot that demonstrates how the predicted vs.actual 
 
 **Takeaways:**<br>
 
-1. Tree-based ensemble methods outperform the linear regression and MLP configurations. Best model(random forest) achieves as R^2 of 0.8645, meaning it can capture meaningful signal at a fairly high rate, but a MAPE of 30% demonstrates clear prediction possibilities, especially for individuals with very high charges.<br>
+1. Tree-based ensemble methods outperform the linear regression and MLP configurations. Best model(random forest) achieves as R^2 of 0.8645, meaning it can capture meaningful signal at a fairly high rate, but a MAPE of 30% demonstrates clear prediction innacuracies especially for individuals with very high charges.<br>
 2. Smoking across the board is the most important feature( .62 importance in random forest approach) in the ML analysis. This is also demonstrated when isolating for smokers versus no smokers, an average of $32k to $8.4k respectively. <br>
 3. BMI, age come after smoking in terms of factor importance, .21 and .13 respectively. High BMI old age can clearly be argued to contribute to higher charges within insurance.
 4. Number of children, geographic region, and sex are contributing relatively little, at least in the limited analysis we have conducted in this project.<br>
@@ -256,8 +256,8 @@ Furthermore here is also the plot that demonstrates how the predicted vs.actual 
 **Limitations:**<br>
 
 1. Size of this dataset is somewhat limited(only 1338 samples) thus may not generalize well to other populations<br>
-2. The evaluation is being done using a simple train-test split system. Performing cross-validation, as well as more advanced techniques such as hyperparameter tuning, could boost the peformance of the ML approaches we are employing<br>
-The preprocessing being doen is quite straightforward, the results would probably improve given more advanced feature engineering(this includes things like non-linear transformations)<br>
+2. The evaluation is being done using a simple train-test split system. Performing cross-validation, as well as more advanced techniques such as hyperparameter tuning, could boost the peformance of the ML approaches we are employing.<br>
+3. The preprocessing being doen is quite straightforward, the results would probably improve given more advanced feature engineering(this includes things like non-linear transformations).<br>
 
 
 
