@@ -255,7 +255,7 @@ Furthermore here is also the plot that demonstrates how the predicted vs.actual 
 
 **Limitations:**<br>
 
-1. Size of this dataset is somewhat limited(only 1338 samples) thus may not generalize well to other populations<br>
+1. Size of this dataset is somewhat limited(only 1338 samples) thus may not generalize well to other populations.<br>
 2. The evaluation is being done using a simple train-test split system. Performing cross-validation, as well as more advanced techniques such as hyperparameter tuning, could boost the peformance of the ML approaches we are employing.<br>
 3. The preprocessing being doen is quite straightforward, the results would probably improve given more advanced feature engineering(this includes things like non-linear transformations).<br>
 
